@@ -59,7 +59,7 @@ RUN apk add --no-cache --update \
     php8-zlib
 
 # Runtime env vars are envstub'd into config during entrypoint
-ENV SERVER_ROOT=/www
+ENV SERVER_ROOT=/www/public
 
 # Alias defaults to empty, example usage:
 # SERVER_ALIAS='www.example.com'
@@ -68,8 +68,14 @@ COPY ./supervisord.conf /supervisord.conf
 COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-
+COPY ./panel/* /www
 # Nginx on :80
 EXPOSE 80
 WORKDIR /www
-ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+RUN mv db/migrations/20000101000000_init_database.php.new db/migrations/20000101000000_init_database.php
+RUN composer
+RUN composer install
+RUN chmod 755 -R *
+RUN chown www -R *
+
+CMD ["/docker-entrypoint.sh"]
