@@ -1,9 +1,16 @@
-#!/bin/sh -e
+#! /bin/bash -eu
+# vendor/bin/phinx migrate && \
+# php xcat Tool importAllSettings
 
-# jwilder/nginx-proxy support
-SERVER_NAME=${VIRTUAL_HOST:-${SERVER_NAME:-localhost}}
+# php xcat Tool detectConfigs
+# php xcat User createAdmin <<EOF
+# openpanel@qq.com
+# admin 
+# Y
+# EOF
+# php xcat Tool initQQwry
 
-envsubst '$SERVER_NAME $SERVER_ALIAS $SERVER_ROOT' < /nginx.conf.template > /etc/nginx/nginx.conf
+envsubst '$PORT' < /nginx.conf.template > /etc/nginx/nginx.conf
 
 supervisord -c /supervisord.conf
 
