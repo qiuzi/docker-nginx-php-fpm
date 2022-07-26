@@ -16,12 +16,14 @@ COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/su
 # Install nginx & gettext (envsubst)
 # Create cachedir and fix permissions
 RUN apk add --no-cache --update \
-    gettext \
+    gettext zip unzip \
+    git curl ca-certificates \
     nginx && \
     mkdir -p /var/cache/nginx && \
     chown -R www:www /var/cache/nginx && \
     chown -R www:www /var/lib/nginx
-
+RUN curl http://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
+    
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
     php8 \
@@ -57,8 +59,6 @@ RUN apk add --no-cache --update \
     php8-zlib
 
 # Runtime env vars are envstub'd into config during entrypoint
-ENV SERVER_NAME="localhost"
-ENV SERVER_ALIAS=""
 ENV SERVER_ROOT=/www
 
 # Alias defaults to empty, example usage:
