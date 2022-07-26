@@ -44,12 +44,12 @@ http {
     listen $PORT;
     server_name _;
 
-    root $SERVER_ROOT;
+    root /www/public;
 
     index index.php;
 
     location / {
-      try_files $uri $uri/ /index.php$is_args$args;
+      try_files $uri /index.php$is_args$args;
     }
 
     location ~ \.php$ {
