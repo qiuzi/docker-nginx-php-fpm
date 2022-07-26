@@ -41,10 +41,8 @@ http {
   include /etc/nginx/mime.types;
 
   server {
-    listen 80;
-    listen [::]:80;
-
-    server_name $SERVER_NAME $SERVER_ALIAS;
+    listen $PORT;
+    server_name _;
 
     root $SERVER_ROOT;
 
