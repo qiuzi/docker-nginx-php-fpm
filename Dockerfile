@@ -18,7 +18,7 @@ COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/su
 RUN apk add --no-cache --update \
     gettext zip unzip \
     git curl ca-certificates \
-    nginx && \
+    nginx bash && \
     mkdir -p /var/cache/nginx && \
     chown -R www:www /var/cache/nginx && \
     chown -R www:www /var/lib/nginx
