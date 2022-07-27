@@ -72,6 +72,7 @@ COPY ./supervisord.conf /supervisord.conf
 COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+USER root
 RUN rm -rf /www/*
 ADD ./panel /www
 COPY ./composer.json /www
