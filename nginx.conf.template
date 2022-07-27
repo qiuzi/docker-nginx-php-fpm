@@ -1,8 +1,6 @@
 
 pid /run/nginx.pid;
 
-user www;
-
 worker_processes auto;
 
 error_log /dev/stderr info;
