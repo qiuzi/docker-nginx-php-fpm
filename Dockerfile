@@ -29,7 +29,7 @@ RUN apk add --no-cache --update \
     php8-cli php8-dev libstdc++ mysql-client bash bash-completion shadow \
     coreutils libpng libmemcached-libs krb5-libs icu-libs \
     icu c-client libzip openldap-clients imap postgresql-client postgresql-libs libcap tzdata sqlite \
-    lua-resty-core nginx-mod-http-lua rabbitmq-c
+    lua-resty-core nginx-mod-http-lua rabbitmq-c \
     php8-apcu \
     php8-bcmath \
     php8-bz2 \
