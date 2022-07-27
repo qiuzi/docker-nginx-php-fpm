@@ -22,7 +22,6 @@ RUN apk add --no-cache --update \
     mkdir -p /var/cache/nginx && \
     chown -R www:www /var/cache/nginx && \
     chown -R www:www /var/lib/nginx
-RUN curl http://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
     
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
@@ -60,7 +59,7 @@ RUN apk add --no-cache --update \
 
 # Runtime env vars are envstub'd into config during entrypoint
 ENV SERVER_ROOT=/www/public
-
+RUN curl http://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 # Alias defaults to empty, example usage:
 # SERVER_ALIAS='www.example.com'
 
