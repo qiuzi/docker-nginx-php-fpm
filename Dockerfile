@@ -67,7 +67,7 @@ COPY ./supervisord.conf /supervisord.conf
 COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-COPY ./panel/* /www
+COPY ./panel/* /www/
 COPY ./composer.json /www
 WORKDIR /www
 RUN mv db/migrations/20000101000000_init_database.php.new db/migrations/20000101000000_init_database.php
