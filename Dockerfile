@@ -17,8 +17,8 @@ COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/su
 # Create cachedir and fix permissions
 RUN apk add --no-cache --update \
     gettext zip unzip \
-    git curl ca-certificates \
-    nginx bash && \
+    curl ca-certificates \
+    nginx && \
     mkdir -p /var/cache/nginx && \
     chown -R www:www /var/cache/nginx && \
     chown -R www:www /var/lib/nginx
@@ -26,6 +26,10 @@ RUN apk add --no-cache --update \
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
     php8 \
+    php8-cli php8-dev libstdc++ mysql-client bash bash-completion shadow \
+    coreutils libpng libmemcached-libs krb5-libs icu-libs \
+    icu c-client libzip openldap-clients imap postgresql-client postgresql-libs libcap tzdata sqlite \
+    lua-resty-core nginx-mod-http-lua rabbitmq-c
     php8-apcu \
     php8-bcmath \
     php8-bz2 \
@@ -44,6 +48,7 @@ RUN apk add --no-cache --update \
     php8-openssl \
     php8-pcntl \
     php8-pecl-msgpack \
+    php8-mysql \
     php8-pdo \
     php8-pdo_mysql \
     php8-phar \
@@ -67,12 +72,12 @@ COPY ./supervisord.conf /supervisord.conf
 COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN rm -rf /www/*
 COPY ./panel/* /www/
 COPY ./composer.json /www
 WORKDIR /www
-RUN ls /www
+
 # RUN mv /www/db/migrations/20000101000000_init_database.php.new db/migrations/20000101000000_init_database.php
-RUN composer
 RUN composer install
 RUN chmod 755 -R *
 RUN chown www -R *
