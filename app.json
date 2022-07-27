@@ -1,0 +1,14 @@
+{
+    "name": "anpanel",
+    "description": "Template for deploying php and ngninx to Heroku",
+    "repository": "",
+    "stack": "container",
+    "success_url": "/",
+    "env": {
+        "CONFIG_FILE": {
+          "description": "This value must be heroku when running in Heroku",
+          "value": "heroku",
+          "required": false
+        }
+  }
+}
