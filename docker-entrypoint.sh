@@ -6,8 +6,8 @@ if [ "$DATABASE" = "yse" ]; then
  php xcat Tool importAllSettings
  php xcat Tool detectConfigs
  php xcat User createAdmin <<EOF
- $ADMINEMAIL
- $ADMIMNPASSWD 
+ echo $ADMINEMAIL
+ echo $ADMIMNPASSWD
  Y
  EOF
  php xcat Tool initQQwry
