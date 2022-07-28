@@ -4,8 +4,8 @@
 # php xcat Tool importAllSettings
 # php xcat Tool detectConfigs
 # php xcat User createAdmin <<EOF
-# openpanel@qq.com
-# admin 
+# $ADMINEMAIL
+# $ADMIMNPASSWD 
 # Y
 # EOF
 # php xcat Tool initQQwry
