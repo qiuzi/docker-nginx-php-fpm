@@ -10,6 +10,11 @@
           "value": "",
           "required": false
         },
+        "DATABASE": {
+          "description": "Whether to reset the database (consider carefully)",
+          "value": "no",
+          "required": true
+        },
          "ADMINEMAIL": {
           "description": "Top administrator email",
           "value": "admin@panel.org",
