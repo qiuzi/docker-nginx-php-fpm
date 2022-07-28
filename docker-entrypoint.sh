@@ -1,7 +1,7 @@
 #! /bin/bash -eu
+#cat $CONFIG_FILE >config/.config.php
 # vendor/bin/phinx migrate && \
 # php xcat Tool importAllSettings
-
 # php xcat Tool detectConfigs
 # php xcat User createAdmin <<EOF
 # openpanel@qq.com
