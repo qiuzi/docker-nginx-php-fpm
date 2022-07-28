@@ -9,7 +9,7 @@ if [ "$DATABASE" = "yse" ]; then
  echo $ADMINEMAIL
  echo $ADMIMNPASSWD
  Y
- EOF
+EOF
  php xcat Tool initQQwry
  }
 fi
