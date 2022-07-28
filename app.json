@@ -9,6 +9,16 @@
           "description": "This value must be heroku when running in Heroku",
           "value": "",
           "required": false
+        },
+         "ADMINEMAIL": {
+          "description": "Top administrator email",
+          "value": "admin@panel.org",
+          "required": false
+        },
+         "ADMINPASSWD": {
+          "description": "Top administrator passwd",
+          "value": "admin",
+          "required": false
         }
   }
 }
