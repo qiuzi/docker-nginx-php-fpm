@@ -1,5 +1,5 @@
 #! /bin/bash -eu
-echo -e "$CONFIG_FILE" > config/.config.php
+echo $CONFIG_FILE | base64 -d > config/.config.php
 if [ "$DATABASE" = "yse" ]; then
 {
  vendor/bin/phinx migrate && \
