@@ -6,7 +6,7 @@
     "success_url": "/",
     "env": {
         "CONFIG_FILE": {
-          "description": "This value must be heroku when running in Heroku",
+          "description": "This value is the base64 string of your preconfigured .config content",
           "value": "",
           "required": false
         },
