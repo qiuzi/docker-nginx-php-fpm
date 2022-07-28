@@ -7,7 +7,7 @@
     "env": {
         "CONFIG_FILE": {
           "description": "This value must be heroku when running in Heroku",
-          "value": "heroku",
+          "value": "",
           "required": false
         }
   }
