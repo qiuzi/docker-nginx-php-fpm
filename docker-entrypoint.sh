@@ -1,6 +1,5 @@
 #! /bin/bash -eu
 
-install -d config/
 if [ "$CONFIG_FILE" != "" ]; then
   echo "[INFO] Config Panel from CONFIG_BASE64 env"
   echo $CONFIG_FILE | base64 -d > config/.config.php
