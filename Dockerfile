@@ -79,8 +79,7 @@ COPY ./composer.json /www
 WORKDIR /www
 
 RUN composer install
-RUN echo $CONFIG_FILE | base64 -d > config/.config.php
 RUN chmod 755 -R *
-RUN chown www -R *
+＃RUN chown www -R *
 
 CMD ["/docker-entrypoint.sh"]
