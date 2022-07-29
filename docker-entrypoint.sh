@@ -1,7 +1,6 @@
 #! /bin/bash -eu
 
 chmod 755 -R *
-chown www -R *
 
 if [ "$CONFIG_FILE" != "" ]; then
   echo "[INFO] Config Panel from CONFIG_BASE64 env"
