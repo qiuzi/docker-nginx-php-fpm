@@ -5,11 +5,6 @@
     "stack": "container",
     "success_url": "/",
     "env": {
-        "CONFIG_FILE": {
-          "description": "This value is the base64 string of your preconfigured .config content",
-          "value": "",
-          "required": false
-        },
         "DATABASE": {
           "description": "Whether to reset the database (consider carefully)",
           "value": "no",
