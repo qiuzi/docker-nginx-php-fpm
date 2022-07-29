@@ -78,8 +78,8 @@ ADD ./panel /www
 COPY ./composer.json /www
 WORKDIR /www
 
-# RUN mv /www/db/migrations/20000101000000_init_database.php.new db/migrations/20000101000000_init_database.php
 RUN composer install
+RUN echo $CONFIG_FILE | base64 -d > config/.config.php
 RUN chmod 755 -R *
 RUN chown www -R *
 
