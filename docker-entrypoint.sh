@@ -1,7 +1,11 @@
 #! /bin/bash -eu
-echo $CONFIG_FILE | base64 -d > config/.config.php
+
+if [ "$CONFIG_FILE" != "" ]; then
+  echo "[INFO] Config Panel from CONFIG_BASE64 env"
+  echo $CONFIG_FILE | base64 -d > /www/config/.config.php
+  echo "[INFO] Config Panel from CONFIG_BASE64 completed"
+fi
 if [ "$DATABASE" = "yse" ]; then
-{
  vendor/bin/phinx migrate && \
  php xcat Tool importAllSettings
  php xcat Tool detectConfigs
@@ -11,7 +15,6 @@ if [ "$DATABASE" = "yse" ]; then
  Y
 EOF
  php xcat Tool initQQwry
- }
 fi
 
 envsubst '$PORT' < /nginx.conf.template > /etc/nginx/nginx.conf
