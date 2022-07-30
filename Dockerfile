@@ -19,7 +19,7 @@ RUN apk add --no-cache --update \
     gettext zip unzip \
     curl ca-certificates \
     nginx && \
-    mkdir -p /var/cache/nginx
+    mkdir -p /var/cache/nginx && \
     chown -R www:www /var/cache/nginx && \
     chown -R www:www /var/lib/nginx
     
@@ -81,6 +81,6 @@ WORKDIR /www
 
 RUN composer install
 RUN chmod 755 -R *
-RUN chown www:www -R *
+RUN chown www -R *
 
 CMD ["/docker-entrypoint.sh"]
