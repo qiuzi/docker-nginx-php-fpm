@@ -17,7 +17,7 @@ EOF
  php xcat Tool initQQwry
 fi
 if [ "$PORT" = "" ]; then
-  PORT=80
+  PORT=1480
 
 
 fi
