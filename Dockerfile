@@ -2,9 +2,9 @@ ARG VERSION_ALPINE=3.16
 FROM alpine:${VERSION_ALPINE}
 
 # Create user
-RUN adduser -D -u 1000 -g 1000 -s /bin/sh www-data && \
-    mkdir -p /www && \
-    chown -R www-data /www
+#RUN adduser -D -u 1000 -g 1000 -s /bin/sh www-data && \
+#    mkdir -p /www && \
+#    chown -R www-data /www
 
 # Install tini - 'cause zombies - see: https://github.com/ochinchina/supervisord/issues/60
 # (also pkill hack)
@@ -19,9 +19,9 @@ RUN apk add --no-cache --update \
     gettext zip unzip \
     curl ca-certificates \
     nginx && \
-    mkdir -p /var/cache/nginx && \
-    chown -R www-data /var/cache/nginx && \
-    chown -R www-data /var/lib/nginx
+    mkdir -p /var/cache/nginx
+#   chown -R www-data /var/cache/nginx && \
+#    chown -R www-data /var/lib/nginx
     
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
@@ -72,7 +72,7 @@ COPY ./supervisord.conf /supervisord.conf
 COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-#USER root
+USER root
 RUN rm -rf /www/*
 ADD ./panel /www
 ADD https://github.com/qiuzi/SSPanel-Uim/raw/dev/config/.config.php /www/config/.config.php
@@ -81,6 +81,6 @@ WORKDIR /www
 
 RUN composer install
 RUN chmod 755 -R *
-RUN chown www-data -R *
+#RUN chown www-data -R *
 
 CMD ["/docker-entrypoint.sh"]
