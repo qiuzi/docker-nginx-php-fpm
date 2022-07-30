@@ -2,9 +2,9 @@ ARG VERSION_ALPINE=3.16
 FROM alpine:${VERSION_ALPINE}
 
 # Create user
-RUN adduser -D -u 1000 -g 1000 -s /bin/sh www && \
+RUN adduser -D -u 1000 -g 1000 -s /bin/sh www-data && \
     mkdir -p /www && \
-    chown -R www:www /www
+    chown -R www-data:www-data /www
 
 # Install tini - 'cause zombies - see: https://github.com/ochinchina/supervisord/issues/60
 # (also pkill hack)
@@ -20,8 +20,8 @@ RUN apk add --no-cache --update \
     curl ca-certificates \
     nginx && \
     mkdir -p /var/cache/nginx && \
-    chown -R www:www /var/cache/nginx && \
-    chown -R www:www /var/lib/nginx
+    chown -R www-data:www-data /var/cache/nginx && \
+    chown -R www-data:www-data /var/lib/nginx
     
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
@@ -81,6 +81,6 @@ WORKDIR /www
 
 RUN composer install
 RUN chmod 755 -R *
-RUN chown www -R *
+RUN chown www-data -R *
 
 CMD ["/docker-entrypoint.sh"]
