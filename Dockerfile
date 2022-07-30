@@ -4,7 +4,7 @@ FROM alpine:${VERSION_ALPINE}
 # Create user
 RUN adduser -D -u 1000 -g 1000 -s /bin/sh www-data && \
     mkdir -p /www && \
-    chown -R www-data:www-data /www
+    chown -R www-data /www
 
 # Install tini - 'cause zombies - see: https://github.com/ochinchina/supervisord/issues/60
 # (also pkill hack)
@@ -20,8 +20,8 @@ RUN apk add --no-cache --update \
     curl ca-certificates \
     nginx && \
     mkdir -p /var/cache/nginx && \
-    chown -R www-data:www-data /var/cache/nginx && \
-    chown -R www-data:www-data /var/lib/nginx
+    chown -R www-data /var/cache/nginx && \
+    chown -R www-data /var/lib/nginx
     
 # Install PHP/FPM + Modules
 RUN apk add --no-cache --update \
