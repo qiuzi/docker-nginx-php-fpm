@@ -75,12 +75,12 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 USER root
 RUN rm -rf /www/*
 ADD ./panel /www
-ADD https://github.com/qiuzi/SSPanel-Uim/raw/dev/config/.config.php /www/config/.config.php
+# ADD https://github.com/qiuzi/SSPanel-Uim/raw/dev/config/.config.php /www/config/.config.php
 COPY ./composer.json /www
 WORKDIR /www
 
 RUN composer install
 RUN chmod 755 -R *
-RUN chown www -R *
+RUN chown www:www -R *
 
 CMD ["/docker-entrypoint.sh"]
