@@ -5,7 +5,7 @@ $_ENV['config_migrate_notice'] =
 ';
 $_ENV['version'] = 2;
 $_ENV['key']        = '1145148104934';
-$_ENV['debug']      = false; 
+$_ENV['debug']      = true; 
 $_ENV['appName']    = 'ANGO';
 $_ENV['baseUrl']    = 'https:
 $_ENV['muKey']      = 'koibvgfx~gj47'; 
