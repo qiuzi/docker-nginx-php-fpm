@@ -5,7 +5,7 @@ if [ "$CONFIG_FILE" != "" ]; then
   echo $CONFIG_FILE | base64 -d > config/.config.php
   echo "[INFO] Config Panel from CONFIG_BASE64 completed"
 fi
-if [ "$DATABASE" = "yse" ]; then
+if [ "$DATABASE" = "yes" ]; then
  vendor/bin/phinx migrate && \
  php xcat Tool importAllSettings
  php xcat Tool detectConfigs
