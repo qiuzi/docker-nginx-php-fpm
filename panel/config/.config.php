@@ -183,7 +183,7 @@ $_ENV['finance_public']                     = true;         //财务报告是否
 $_ENV['enable_welcome_message']             = true;         //机器人发送欢迎消息
 
 # Telegram BOT 其他选项
-$_ENV['allow_to_join_new_groups']           = true;         //允许 Bot 加入下方配置之外的群组
+$_ENV['allow_to_join_new_groups']           = false;         //允许 Bot 加入下方配置之外的群组
 $_ENV['group_id_allowed_to_join']           = [];           //允许加入的群组 ID，格式为 PHP 数组
 $_ENV['telegram_admins']                    = [];           //额外的 Telegram 管理员 ID，格式为 PHP 数组
 $_ENV['enable_not_admin_reply']             = true;         //非管理员操作管理员功能是否回复
