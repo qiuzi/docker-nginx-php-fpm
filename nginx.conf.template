@@ -42,7 +42,7 @@ http {
     listen $PORT;
     server_name _;
 
-    root /www/public;
+    root /var/www/public;
 
     index index.php;
 

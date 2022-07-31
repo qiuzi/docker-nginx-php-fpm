@@ -3,8 +3,8 @@ FROM alpine:${VERSION_ALPINE}
 
 # Create user
 RUN adduser -D -u 1000 -g 1000 -s /bin/sh www && \
-    mkdir -p /www && \
-    chown -R www:www /www
+    mkdir -p /var/www && \
+    chown -R www:www /var/www
 
 # Install tini - 'cause zombies - see: https://github.com/ochinchina/supervisord/issues/60
 # (also pkill hack)
@@ -63,7 +63,7 @@ RUN apk add --no-cache --update \
     php8-zlib
 
 # Runtime env vars are envstub'd into config during entrypoint
-ENV SERVER_ROOT=/www/public
+
 RUN curl http://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 # Alias defaults to empty, example usage:
 # SERVER_ALIAS='www.example.com'
@@ -73,10 +73,10 @@ COPY ./php-fpm-www.conf /etc/php8/php-fpm.d/www.conf
 COPY ./nginx.conf.template /nginx.conf.template
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 USER root
-RUN rm -rf /www/*
-ADD ./panel /www
-COPY ./composer.json /www
-WORKDIR /www
+RUN rm -rf /var/www/*
+ADD ./panel /var/www
+COPY ./composer.json /var/www
+WORKDIR /var/www
 
 RUN composer install
 RUN chmod 755 -R *
