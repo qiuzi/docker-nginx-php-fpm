@@ -75,7 +75,6 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 USER root
 RUN rm -rf /www/*
 ADD ./panel /www
-# ADD https://github.com/qiuzi/SSPanel-Uim/raw/dev/config/.config.php /www/config/.config.php
 COPY ./composer.json /www
 WORKDIR /www
 
