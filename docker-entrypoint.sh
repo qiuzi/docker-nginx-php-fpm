@@ -10,8 +10,8 @@ if [ "$DATABASE" = "yes" ]; then
  php xcat Tool importAllSettings
  php xcat Tool detectConfigs
  php xcat User createAdmin <<EOF
- echo $ADMINEMAIL
- echo $ADMINPASSWD
+ $ADMINEMAIL
+ $ADMINPASSWD
  Y
 EOF
  php xcat Tool initQQwry
