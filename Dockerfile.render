@@ -5,9 +5,7 @@ ADD ./panel /var/www
 COPY ./composer.json /var/www
 WORKDIR /var/www
 
-RUN chmod -R 755 storage && \
-    chmod -R 777 /var/www/storage/framework/smarty/compile/ && \
-    curl -SL https://getcomposer.org/installer -O composer.phar && \
+RUN curl -SL https://getcomposer.org/installer -O composer.phar && \
     php composer.phar && \
     php composer.phar install
 RUN chmod 755 -R *
