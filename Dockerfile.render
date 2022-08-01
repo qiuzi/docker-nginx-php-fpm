@@ -1,0 +1,15 @@
+FROM indexyz/php
+LABEL maintainer="Indexyz <indexyz@protonmail.com>"
+
+COPY ./panel /var/www
+WORKDIR /var/www
+
+RUN chmod -R 755 storage && \
+    chmod -R 777 /var/www/storage/framework/smarty/compile/ && \
+    curl -SL https://getcomposer.org/installer -O composer.phar && \
+    php composer.phar && \
+    php composer.phar install
+    
+RUN chmod 755 -R *
+
+CMD ["/docker-entrypoint.sh"]
