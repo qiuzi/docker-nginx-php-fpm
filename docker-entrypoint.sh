@@ -18,8 +18,6 @@ EOF
 fi
 if [ "$PORT" = "" ]; then
   PORT=80
-
-
 fi
 envsubst '$PORT' < /nginx.conf.template > /etc/nginx/nginx.conf
 
