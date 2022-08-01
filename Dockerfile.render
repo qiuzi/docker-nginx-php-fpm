@@ -9,7 +9,7 @@ RUN chmod -R 755 storage && \
     curl -SL https://getcomposer.org/installer -O composer.phar && \
     php composer.phar && \
     php composer.phar install
-    
 RUN chmod 755 -R *
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh  
 
 CMD ["/docker-entrypoint.sh"]
