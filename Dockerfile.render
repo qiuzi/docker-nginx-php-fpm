@@ -1,7 +1,8 @@
 FROM indexyz/php
 LABEL maintainer="Indexyz <indexyz@protonmail.com>"
 
-COPY ./panel /var/www
+ADD ./panel /var/www
+COPY ./composer.json /var/www
 WORKDIR /var/www
 
 RUN chmod -R 755 storage && \
