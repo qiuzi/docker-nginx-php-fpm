@@ -5,6 +5,7 @@ ADD ./panel /var/www
 COPY ./composer.json /var/www
 WORKDIR /var/www
 
+RUN bash
 RUN curl -SL https://getcomposer.org/installer -O composer.phar && \
     php composer.phar && \
     php composer.phar install
