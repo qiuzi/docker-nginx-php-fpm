@@ -6,8 +6,8 @@ COPY ./composer.json /var/www
 WORKDIR /var/www
 
 RUN bash | curl -SL https://getcomposer.org/installer -O composer.phar && \
-    php composer.phar && \
-    php composer.phar install
+    bash | php composer.phar && \
+    bash | php composer.phar install
 RUN bash | chmod 755 -R *
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh  
 
