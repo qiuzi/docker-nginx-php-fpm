@@ -163,7 +163,7 @@
                         <div class="card-main">
                             <div class="card-inner margin-bottom-no">
                                 <p class="card-heading"><i class="icon icon-md">notifications_active</i> 公告栏</p>
-                                    <strong>查看所有公告请<a href="/user/announcement">点击这里</a></strong>                               
+                                    <strong>查看所有公告请 <a href="/user/announcement"><i class="icon icon-lg">announcement</i>&nbsp;站点公告</a></strong>                               
                                 {if $ann != null}
                                     <p>{$ann->content}</p>
                                     <br/>
