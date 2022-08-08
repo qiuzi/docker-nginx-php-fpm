@@ -88,9 +88,6 @@
                             <a href="/user/node"><i class="icon icon-lg">airplanemode_active</i>&nbsp;节点列表</a>
                         </li>
                         <li>
-                            <a href="/user/announcement"><i class="icon icon-lg">announcement</i>&nbsp;站点公告</a>
-                        </li>
-                        <li>
                             <a href="/user/detect"><i class="icon icon-lg">account_balance</i>&nbsp;审计规则</a>
                         </li>
                         <li>
