@@ -11,35 +11,8 @@
         <div class="logo">
             <img src="/images/uim-logo-round.png">
         </div>
-        <h>{$config['appName']}</h>
-        <br>
-        <br>
         {if $user->isLogin}
-        <p>账户 {$user->email} 的使用状态</p>
-        <br>
-        <table>
-            <tr>
-                <th>账户等级</th>
-                <th>当前等级到期时间</th>
-                <th>已用流量</th>
-                <th>剩余流量</th>
-            </tr>
-            <tr>
-                {if $user->class!=0}
-                <th>VIP{$user->class}</th>
-                {else}
-                <th>免费</th>
-                {/if}
-                {if $user->class_expire!="1989-06-04 00:05:00"}
-                <th>{$user->class_expire}</th>
-                {else}
-                <th>不过期</th>
-                {/if}
-                <th>{$user->usedTraffic()}</th>
-                <th>{$user->unusedTraffic()}</th>
-            </tr>
-        </table>
-        <br>
+        <p>{$user->email} </p>
         <ul>
             <li><button class="btn white"><a href="/user">用户中心</a></button></li>
             {if $user->is_admin}
