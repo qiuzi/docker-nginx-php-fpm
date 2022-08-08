@@ -161,6 +161,30 @@
                 <div class="col-xx-12 col-sm-5">
                     <div class="card">
                         <div class="card-main">
+                            <div class="card-inner margin-bottom-no">
+                                <p class="card-heading"><i class="icon icon-md">notifications_active</i> 公告栏</p>
+                                    <strong>查看所有公告请<a href="/user/announcement">点击这里</a></strong>                               
+                                {if $ann != null}
+                                    <p>{$ann->content}</p>
+                                    <br/>
+                                {/if}
+                                {if $config['enable_admin_contact'] == true}
+                                    <p class="card-heading">如需帮助，请联系：</p>
+                                    {if $config['admin_contact1'] != ''}
+                                        <p>{$config['admin_contact1']}</p>
+                                    {/if}
+                                    {if $config['admin_contact2'] != ''}
+                                        <p>{$config['admin_contact2']}</p>
+                                    {/if}
+                                    {if $config['admin_contact3'] != ''}
+                                        <p>{$config['admin_contact3']}</p>
+                                    {/if}
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-main">
                         <div class="card-inner margin-bottom-no">
                             <p class="card-heading" style="margin-bottom: 0;"><i class="icon icon-md">account_circle</i>流量使用情况</p>
                                 {if $user->validUseLoop() != '未购买套餐.'}
@@ -233,30 +257,6 @@
                                 </div>
                             </div>
                             {/if}
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner margin-bottom-no">
-                                <p class="card-heading"><i class="icon icon-md">notifications_active</i> 公告栏</p>
-                                {if $ann != null}
-                                    <p>{$ann->content}</p>
-                                    <br/>
-                                    <strong>查看所有公告请<a href="/user/announcement">点击这里</a></strong>
-                                {/if}
-                                {if $config['enable_admin_contact'] == true}
-                                    <p class="card-heading">如需帮助，请联系：</p>
-                                    {if $config['admin_contact1'] != ''}
-                                        <p>{$config['admin_contact1']}</p>
-                                    {/if}
-                                    {if $config['admin_contact2'] != ''}
-                                        <p>{$config['admin_contact2']}</p>
-                                    {/if}
-                                    {if $config['admin_contact3'] != ''}
-                                        <p>{$config['admin_contact3']}</p>
-                                    {/if}
-                                {/if}
-                            </div>
                         </div>
                     </div>
                 </div>
