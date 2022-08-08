@@ -175,7 +175,7 @@ a.boardtop-left:hover {
 	max-width: 100px;
 	border-radius: 50%;
 	margin: 1em 0 1em 0;
-	box-shadow: 0 0 5px 0 #afafaf;
+	// box-shadow: 0 0 5px 0 #afafaf;
 	user-select: none;
 }
 
