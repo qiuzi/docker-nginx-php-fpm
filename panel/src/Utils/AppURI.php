@@ -637,8 +637,8 @@ final class AppURI
             case 'trojan':
                 $return = 'trojan://' . $item['passwd'] . '@' . $item['address'] . ':' . $item['port'];
                 $return .= ('?peer=' . $item['host'] . '&sni=' . $item['host']);
-                if ($item['tls'] === 'xtls') {
-                    $return .= ('&security=' . $item['tls'] . '&flow=' . $item['flow']);
+                if ($item['grpc'] !== '') {
+                    $return .= ('?mode=gun' . '&security=tls' . '&type=grpc' . '&serviceName=' . $item['servicename']);
                 }
                 $return .= '#' . rawurlencode($item['remark']);
                 break;
