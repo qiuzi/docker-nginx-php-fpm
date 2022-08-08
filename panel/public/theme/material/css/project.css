@@ -1233,7 +1233,7 @@ a.tag-magenta,.tag-magenta {
 .cust-model {
     display: none;
     position: fixed;
-    top: -10em;
+    top: -5em;
     left: 0;
     right: 0;
     margin-left: auto;
