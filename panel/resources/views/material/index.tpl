@@ -12,7 +12,7 @@
             <img src="/images/uim-logo-round.png">
         </div>
         {if $user->isLogin}
-        <p>{$user->email} </p>
+        <p>{$user->user_name} </p>
         <ul>
             <li><button class="btn white"><a href="/user">用户中心</a></button></li>
             {if $user->is_admin}
