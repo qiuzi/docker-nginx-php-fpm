@@ -460,7 +460,7 @@ final class URL
         $server = $node->getTrojanItem($user);
         $return = 'trojan://' . $server['passwd']
             . '@' . $server['address'] . ':' . $server['port'];
-            $return .= '?mode=gun&security=tls&type=grpc&serviceName=' . $item['servicename'];
+            $return .= '?mode=gun&security=tls&type=grpc&serviceName=' . $server['servicename'];
         return $return . '#' . rawurlencode($node->name);
     }
 
