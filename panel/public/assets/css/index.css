@@ -2,9 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC');
 
 .center-xy {
-  // width: inherit;
   left: 78%;
-  // right: 20%;
   position: absolute;
   padding-bottom: 5%;
 }
@@ -35,7 +33,6 @@ body {
 	max-width: 100px;
 	border-radius: 50%;
 	margin: 1em 0 1em 0;
-	// box-shadow: 0 0 5px 0 #afafaf;
 	user-select: none;
 }
 
@@ -55,8 +52,6 @@ table {
 .btn {
   border: 2px solid white;
   background-color: #4d2b6c;
-  // color: black;
-  // padding: 14px 28px;
   font-size: 22px;
   cursor: pointer;
 }
