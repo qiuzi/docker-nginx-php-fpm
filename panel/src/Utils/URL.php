@@ -460,7 +460,15 @@ final class URL
         $server = $node->getTrojanItem($user);
         $return = 'trojan://' . $server['passwd']
             . '@' . $server['address'] . ':' . $server['port'];
+            if ($server['grpc'] === '1') {
             $return .= '?mode=gun&security=tls&type=grpc&serviceName=' . $server['servicename'];
+           }
+           if ($server['path'] !== '') {
+            $return .= '?path=' . $server['path'];
+           }            
+           if ($server['network'] === 'ws') {
+            $return .= '&security=tls&type=' . $server['network'];
+           }                     
             if ($server['host'] !== $server['address']) {
                 $return .= '&sni=' . $server['host'];
             }
