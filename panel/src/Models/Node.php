@@ -455,6 +455,8 @@ final class Node extends Model
         $item['host'] = $item['address'];
         $item['net'] = (isset($opt['grpc']) ? 'grpc' : '');
         $item['servicename'] = ($opt['servicename'] ?? '');
+        $item['network'] = ($opt['network'] ?? '');
+        $item['path'] = ($opt['path'] ?? '');                
         $item['flow'] = ($opt['flow'] ?? '');
         $xtls = ($opt['enable_xtls'] ?? '');
         if ($xtls === 'true') {
