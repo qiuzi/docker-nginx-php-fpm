@@ -454,6 +454,7 @@ final class Node extends Model
         $item['passwd'] = $user->uuid ?? '';
         $item['host'] = $item['address'];
         $item['net'] = (isset($opt['grpc']) ? 'grpc' : '');
+        $item['grpc'] = ($opt['grpc'] ?? '');
         $item['servicename'] = ($opt['servicename'] ?? '');
         $item['network'] = ($opt['network'] ?? '');
         $item['path'] = ($opt['path'] ?? '');                
